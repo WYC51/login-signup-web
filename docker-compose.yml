@@ -1,0 +1,32 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql
+    restart: always
+    command: --init-file /data/application/init.sql
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    networks:
+      - common-net
+    expose:
+      - '3306'
+    volumes:
+      - ./init.sql:/data/application/init.sql
+  web:
+    image: flask-app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 5050:5050
+    networks:
+      - common-net
+networks:
+    common-net:
+      driver: bridge
