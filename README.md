@@ -21,9 +21,6 @@ This repository utilizes Flask for managing backend services and MySQL as the SQ
 ## Flask-APP Flowchart
 ![img](./img/flowchart.jpg)
 
-## Demo
-If you are interested in this repo, please visit my demo [website](HTTP:www.wyc51.me:5050).
-
 ---
 #### Login Page
 ![](./img/login.png)
